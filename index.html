@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+
+  <title>Frontend Mentor | Notifications page</title>
+
+</head>
+
+<body>
+  <div class="card">
+    <div class="heading">
+      <h3>Notifications <span id="count">7</span></h3>
+      <p id="mark-all">Mark all as read</p>
+    </div>
+    <div class="notification">
+      <img src="./assets/images/avatar-mark-webber.webp" alt="">
+      <div>
+        <p class="text"><span class="name">Mark Webber </span> reacted to your recent post <span class="event"> My first
+            tournament today!</span><span class="dot"></span></p>
+        <p class="time">1m ago</p>
+      </div>
+    </div>
+    <div class="notification">
+      <img src="./assets/images/avatar-angela-gray.webp" alt="">
+      <div>
+        <p class="text"><span class="name">Angela Gray</span> followed you<span class="dot"></span></p>
+        <p class="time">5m ago</p>
+      </div>
+    </div>
+    <div class="notification">
+      <img src="./assets/images/avatar-jacob-thompson.webp" alt="">
+      <div>
+        <p class="text"><span class="name">Jacob Thompson</span> has joined your group <span class="mygroup">Chess
+            Club</span><span class="dot"></span></p>
+        <p class="time">1 day ago</p>
+      </div>
+    </div>
+    <div class="notification">
+      <img src="./assets/images/avatar-rizky-hasanuddin.webp" alt="">
+      <div>
+        <p class="text"><span class="name">Rizky Hasanuddin</span> sent you a private message<span class="dot"></span>
+        </p>
+        <p class="time">5 days ago</p>
+        <p class="comment">Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and
+          I'm already having lots of fun and improving my game.</p>
+      </div>
+    </div>
+    <div class="notification">
+      <img src="./assets/images/avatar-kimberly-smith.webp" alt="">
+      <div>
+        <p class="text"><span class="name">Kimberly Smith</span> commented on your picture<span class="dot"></span></p>
+        <p class="time">1 week ago</p>
+      </div>
+      <img class="img-chess" src="./assets/images/image-chess.webp" alt="">
+    </div>
+    <div class="notification">
+      <img src="./assets/images/avatar-nathan-peterson.webp" alt="">
+      <div>
+        <p class="text"><span class="name">Nathan Peterson</span> reacted to your recent post <span class="event">5
+            end-game strategies to increase
+            your win
+            rate</span><span class="dot"></span></p>
+        <p class="time">2 weeks ago</p>
+      </div>
+    </div>
+    <div class="notification">
+      <img src="./assets/images/avatar-anna-kim.webp" alt="">
+      <div>
+        <p class="text"><span class="name">Anna Kim</span> left the group <span class="mygroup">Chess Club</span><span
+            class="dot"></span></p>
+        <p class="time">2 weeks ago</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://github.com/roricrimson">RoriCrimson</a>.
+    </p>
+  </footer>
+
+  <script>
+    const notification = document.querySelectorAll(".notification")
+    const markAll = document.querySelector("#mark-all")
+    let counter = 7
+    var span = document.querySelector("#count")
+    const dot = document.querySelectorAll(".dot")
+
+    markAll.onclick = () => {
+      notification.forEach((el, index) => {
+        if (!el.classList.contains('read')) {
+          el.classList.add('read')
+          dot[index].style.display = 'none'
+          counter = counter - 1
+          span.innerHTML = counter;
+        }
+      })
+    }
+
+    notification.forEach((el, index) => {
+      el.onclick = () => {
+        if (!el.classList.contains('read')) {
+          el.classList.add('read')
+          dot[index].style.display = 'none'
+          counter = counter - 1
+          span.innerHTML = counter;
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>
